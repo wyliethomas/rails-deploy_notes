@@ -51,4 +51,26 @@ Hurry and wait. This process will take a few minutes.
 
 ... 
 
+```gem install bundler```
+
+
+
+# 3. Public Key
+
+```ssh-keygen -t rsa```
+
+Copy your public key and add it to your github repo deploy keys
+
+```cat ~/.ssh/id_rsa.pub```
+
+
+# 4. Clone the project to your server
+
+```cd ~/```
+
+```git clone git@github.com:[YOUR PROJECT]```
+
+
+
+
 
