@@ -2,19 +2,22 @@ Preq:
 - You are able to ssh into the server
 
 
-#Install Ruby via RVM
+# Install Ruby via RVM
 
 https://github.com/rvm/ubuntu_rvm
 
 ```sudo apt-add-repository -y ppa:rael-gc/rvm```
+
 ```sudo apt-get update```
+
 ```sudo apt-get install rvm```
+
 
 Add your user to rvm group ($USER will automatically insert your username):
 
 ```sudo usermod -a -G rvm $USER```
 
-### You will need to change your terminal window.
+### Restart your terminal window.
 
 You can simply exit then ssh back in.
 
