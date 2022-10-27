@@ -88,7 +88,8 @@ Set up your vhost file:
 
 ```sudo vim /etc/apache2/sites-available/[YOUR PROJECT NAME].conf```
 
-```<VirtualHost *:80>
+```
+<VirtualHost *:80>
         ServerAdmin webmaster@localhost
         ServerName [YOUR DOMAIN].com
         ServerAlias [SUB DOMAIN].[DOMAIN].com
