@@ -124,8 +124,8 @@ Set up your vhost file:
                 ProxyPass !
         </Location>
 
-        ProxyPass / http://localhost:3000
-        ProxyPassReverse / http://localhost:3000
+        ProxyPass / http://localhost/
+        ProxyPassReverse / http://localhost/
 
         #ErrorLog ${APACHE_LOG_DIR}/error.log
         #CustomLog ${APACHE_LOG_DIR}/access.log combined
@@ -265,6 +265,7 @@ and trouble shoot your setup.
 # 8. App server
 
 
+```mkdir -p ./tmp/puma```
 
 
 
