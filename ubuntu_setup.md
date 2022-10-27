@@ -64,11 +64,66 @@ Copy your public key and add it to your github repo deploy keys
 ```cat ~/.ssh/id_rsa.pub```
 
 
+
 # 4. Clone the project to your server
 
 ```cd ~/```
 
 ```git clone git@github.com:[YOUR PROJECT]```
+
+
+
+# 5. Install Apache
+
+```sudo apt install apache2```
+
+Install the Proxy Mod
+
+```sudo a2enmod proxy```
+
+```sudo a2enmod proxy_http```
+
+
+Set up your vhost file:
+
+```sudo vim /etc/apache2/sites-available/[YOUR PROJECT NAME].conf```
+
+```<VirtualHost *:80>
+        ServerAdmin webmaster@localhost
+        ServerName [YOUR DOMAIN].com
+        ServerAlias [SUB DOMAIN].[DOMAIN].com
+        DocumentRoot /home/ubuntu/[YOUR APP]/public
+
+        <Location /assets>
+                ProxyPass !
+        </Location>
+
+        <Location /system>
+                ProxyPass !
+        </Location>
+
+        ProxyPass / http://localhost:3000
+        ProxyPassReverse / http://localhost:3000
+
+        #ErrorLog ${APACHE_LOG_DIR}/error.log
+        #CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+</VirtualHost>```
+
+Enable the conf file
+
+```sudo a2ensite turninghearts.conf```
+
+Disable the default conf file
+
+```sudo a2dissite 000-default.conf```
+
+Restart the server
+
+```sudo service apache2 restart```
+
+
+
 
 
 
