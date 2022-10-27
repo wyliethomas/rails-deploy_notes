@@ -126,6 +126,59 @@ Restart the server
 
 
 
+# 6. PostgreSQL & database config
+
+```sudo apt-get install postgresql postgresql-contrib libpq-dev```
+
+```sudo su - postgres```
+
+```createuser --pwprompt deploy```
+
+```createdb -O deploy [PROJECT DB NAME]```
+
+```exit```
+
+### Update your projects database settings.
+
+```cd ~/[YOUR APP]/config```
+
+```vim database.yml```
+
+Paste in your config settings:
+
+```
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  username: <%= Figaro.env.postgres_user %>
+  password: <%= Figaro.env.postgres_password %>
+  pool: 5
+  timeout: 5000
+
+development:
+  <<: *default
+  database: turninghearts_development
+
+# Warning: The database defined as "test" will be erased and
+# re-generated from your development database when you run "rake".
+# Do not set this db to the same as development or production.
+test:
+  <<: *default
+  database: turninghearts_test
+
+production:
+  <<: *default
+  database: turninghearts_production
+```
+
+
+
+
+
+
+
+
+
 
 
 
