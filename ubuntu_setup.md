@@ -2,7 +2,7 @@ Preq:
 - You are able to ssh into the server
 
 
-# Install Ruby via RVM
+# 1. Install Ruby via RVM
 
 https://github.com/rvm/ubuntu_rvm
 
@@ -27,3 +27,5 @@ You can run ```rvm list known``` to show available rubies. But you likely know w
 In this case I know I needed Ruby 3.1.2.
 
 ```rvm install 3.1.2```
+
+Hurry and wait. This process will take a few minutes.
